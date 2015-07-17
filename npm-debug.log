@@ -1,0 +1,211 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'update', '-g', 'react-tools' ]
+2 info using npm@2.7.4
+3 info using node@v0.12.2
+4 silly mapToRegistry name react-tools
+5 silly mapToRegistry using default registry
+6 silly mapToRegistry registry https://registry.npmjs.org/
+7 silly mapToRegistry uri https://registry.npmjs.org/react-tools
+8 verbose request uri https://registry.npmjs.org/react-tools
+9 verbose request no auth needed
+10 info attempt registry request try #1 at 11:31:53 AM
+11 verbose request id b01bef6824d5fcda
+12 http request GET https://registry.npmjs.org/react-tools
+13 http 200 https://registry.npmjs.org/react-tools
+14 silly get cb [ 200,
+14 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+14 silly get     etag: '"8FKTH3X78RLHVBDYXUWJKZS5J"',
+14 silly get     'content-type': 'application/json',
+14 silly get     'cache-control': 'max-age=60',
+14 silly get     'content-length': '78243',
+14 silly get     'accept-ranges': 'bytes',
+14 silly get     date: 'Fri, 17 Jul 2015 15:31:55 GMT',
+14 silly get     via: '1.1 varnish',
+14 silly get     age: '12',
+14 silly get     connection: 'keep-alive',
+14 silly get     'x-served-by': 'cache-atl6222-ATL',
+14 silly get     'x-cache': 'HIT',
+14 silly get     'x-cache-hits': '1',
+14 silly get     'x-timer': 'S1437147115.752746,VS0,VE1',
+14 silly get     vary: 'Accept' } ]
+15 verbose get saving react-tools to /Users/scottblumenthal/.npm/registry.npmjs.org/react-tools/.cache.json
+16 info outdated updating [ [ '/usr/local/lib',
+16 info outdated     'react-tools',
+16 info outdated     '0.9.0',
+16 info outdated     '0.13.3',
+16 info outdated     '0.13.3',
+16 info outdated     'latest' ] ]
+17 verbose install where, what [ '/usr/local/lib', [ 'react-tools@0.13.3' ] ]
+18 silly cache add args [ 'react-tools@0.13.3', null ]
+19 verbose cache add spec react-tools@0.13.3
+20 silly cache add parsed spec { raw: 'react-tools@0.13.3',
+20 silly cache add   scope: null,
+20 silly cache add   name: 'react-tools',
+20 silly cache add   rawSpec: '0.13.3',
+20 silly cache add   spec: '0.13.3',
+20 silly cache add   type: 'version' }
+21 verbose addNamed react-tools@0.13.3
+22 silly addNamed semver.valid 0.13.3
+23 silly addNamed semver.validRange 0.13.3
+24 silly mapToRegistry name react-tools
+25 silly mapToRegistry using default registry
+26 silly mapToRegistry registry https://registry.npmjs.org/
+27 silly mapToRegistry uri https://registry.npmjs.org/react-tools
+28 verbose addNameVersion registry:https://registry.npmjs.org/react-tools not in flight; fetching
+29 verbose get https://registry.npmjs.org/react-tools not expired, no request
+30 silly mapToRegistry name react-tools
+31 silly mapToRegistry using default registry
+32 silly mapToRegistry registry https://registry.npmjs.org/
+33 silly mapToRegistry uri https://registry.npmjs.org/react-tools
+34 verbose addRemoteTarball https://registry.npmjs.org/react-tools/-/react-tools-0.13.3.tgz not in flight; adding
+35 verbose addRemoteTarball [ 'https://registry.npmjs.org/react-tools/-/react-tools-0.13.3.tgz',
+35 verbose addRemoteTarball   'da6ac7d4d7777a59a5e951cf46e72fd4b6b40a2c' ]
+36 info retry fetch attempt 1 at 11:31:58 AM
+37 info attempt registry request try #1 at 11:31:58 AM
+38 http fetch GET https://registry.npmjs.org/react-tools/-/react-tools-0.13.3.tgz
+39 http fetch 200 https://registry.npmjs.org/react-tools/-/react-tools-0.13.3.tgz
+40 silly fetchAndShaCheck shasum da6ac7d4d7777a59a5e951cf46e72fd4b6b40a2c
+41 verbose addTmpTarball /var/folders/l8/gg1qyxy105n2q41nps_1crmm0000gn/T/npm-3365-f0bf470e/registry.npmjs.org/react-tools/-/react-tools-0.13.3.tgz not in flight; adding
+42 verbose addTmpTarball already have metadata; skipping unpack for react-tools@0.13.3
+43 silly cache afterAdd react-tools@0.13.3
+44 verbose afterAdd /Users/scottblumenthal/.npm/react-tools/0.13.3/package/package.json not in flight; writing
+45 verbose afterAdd /Users/scottblumenthal/.npm/react-tools/0.13.3/package/package.json written
+46 silly install resolved [ { name: 'react-tools',
+46 silly install resolved     description: 'A set of complementary tools to React, including the JSX transformer.',
+46 silly install resolved     version: '0.13.3',
+46 silly install resolved     keywords: [ 'react', 'jsx', 'transformer', 'view' ],
+46 silly install resolved     homepage: 'https://facebook.github.io/react',
+46 silly install resolved     bugs: { url: 'https://github.com/facebook/react/issues' },
+46 silly install resolved     license: 'BSD-3-Clause',
+46 silly install resolved     files:
+46 silly install resolved      [ 'main.js',
+46 silly install resolved        'bin/jsx',
+46 silly install resolved        'src/',
+46 silly install resolved        'vendor/fbtransform/',
+46 silly install resolved        'vendor/inline-source-map.js' ],
+46 silly install resolved     main: 'main.js',
+46 silly install resolved     bin: { jsx: './bin/jsx' },
+46 silly install resolved     repository: { type: 'git', url: 'https://github.com/facebook/react' },
+46 silly install resolved     dependencies: { commoner: '^0.10.0', jstransform: '^10.1.0' },
+46 silly install resolved     devDependencies:
+46 silly install resolved      { benchmark: '~1.0.0',
+46 silly install resolved        browserify: '^9.0.3',
+46 silly install resolved        'bundle-collapser': '^1.1.1',
+46 silly install resolved        'coffee-script': '^1.8.0',
+46 silly install resolved        coverify: '~1.0.4',
+46 silly install resolved        derequire: '^2.0.0',
+46 silly install resolved        envify: '^3.0.0',
+46 silly install resolved        es3ify: '~0.1.2',
+46 silly install resolved        'es5-shim': '^4.0.0',
+46 silly install resolved        eslint: '^0.14.1',
+46 silly install resolved        'esprima-fb': '^13001.1001.0-dev-harmony-fb',
+46 silly install resolved        grunt: '~0.4.2',
+46 silly install resolved        'grunt-cli': '~0.1.9',
+46 silly install resolved        'grunt-compare-size': '~0.4.0',
+46 silly install resolved        'grunt-contrib-clean': '^0.6.0',
+46 silly install resolved        'grunt-contrib-compress': '^0.13.0',
+46 silly install resolved        'grunt-contrib-connect': '~0.6.0',
+46 silly install resolved        'grunt-contrib-jshint': '^0.10.0',
+46 silly install resolved        'grunt-jest': '^0.1.2',
+46 silly install resolved        'gzip-js': '~0.3.2',
+46 silly install resolved        'jasmine-tapreporter': '~0.2.2',
+46 silly install resolved        'jest-cli': '^0.2.1',
+46 silly install resolved        optimist: '~0.6.0',
+46 silly install resolved        phantomjs: '~1.9',
+46 silly install resolved        platform: '^1.1.0',
+46 silly install resolved        populist: '~0.1.6',
+46 silly install resolved        recast: '^0.9.11',
+46 silly install resolved        'sauce-tunnel': '~1.1.0',
+46 silly install resolved        tmp: '~0.0.18',
+46 silly install resolved        typescript: '^1.4.0',
+46 silly install resolved        'uglify-js': '^2.4.20',
+46 silly install resolved        uglifyify: '^3.0.1',
+46 silly install resolved        wd: '~0.2.6' },
+46 silly install resolved     engines: { node: '>=0.10.0' },
+46 silly install resolved     preferGlobal: true,
+46 silly install resolved     commonerConfig: { version: 4 },
+46 silly install resolved     scripts:
+46 silly install resolved      { test: 'jest',
+46 silly install resolved        jest: 'jest',
+46 silly install resolved        lint: 'eslint src',
+46 silly install resolved        build: 'grunt build' },
+46 silly install resolved     jest:
+46 silly install resolved      { rootDir: '',
+46 silly install resolved        scriptPreprocessor: 'jest/preprocessor.js',
+46 silly install resolved        setupEnvScriptFile: 'jest/environment.js',
+46 silly install resolved        persistModuleRegistryBetweenSpecs: true,
+46 silly install resolved        testFileExtensions: [Object],
+46 silly install resolved        modulePathIgnorePatterns: [Object],
+46 silly install resolved        testPathIgnorePatterns: [Object],
+46 silly install resolved        unmockedModulePathPatterns: [Object] },
+46 silly install resolved     _id: 'react-tools@0.13.3',
+46 silly install resolved     _shasum: 'da6ac7d4d7777a59a5e951cf46e72fd4b6b40a2c',
+46 silly install resolved     _resolved: 'https://registry.npmjs.org/react-tools/-/react-tools-0.13.3.tgz',
+46 silly install resolved     _from: 'react-tools@0.13.3',
+46 silly install resolved     _npmVersion: '2.7.3',
+46 silly install resolved     _nodeVersion: '0.10.38',
+46 silly install resolved     _npmUser: { name: 'zpao', email: 'paul@oshannessy.com' },
+46 silly install resolved     maintainers: [ [Object], [Object] ],
+46 silly install resolved     dist:
+46 silly install resolved      { shasum: 'da6ac7d4d7777a59a5e951cf46e72fd4b6b40a2c',
+46 silly install resolved        tarball: 'http://registry.npmjs.org/react-tools/-/react-tools-0.13.3.tgz' },
+46 silly install resolved     directories: {} } ]
+47 info install react-tools@0.13.3 into /usr/local/lib
+48 info installOne react-tools@0.13.3
+49 verbose installOne of react-tools to /usr/local/lib not in flight; installing
+50 verbose lock using /Users/scottblumenthal/.npm/_locks/react-tools-548e65591a6e6311.lock for /usr/local/lib/node_modules/react-tools
+51 silly install write writing react-tools 0.13.3 to /usr/local/lib/node_modules/react-tools
+52 silly cache addNamed cb react-tools@0.13.3
+53 verbose unbuild lib/node_modules/react-tools
+54 info preuninstall react-tools@0.9.0
+55 info uninstall react-tools@0.9.0
+56 verbose unbuild rmStuff react-tools@0.9.0 from /usr/local/lib/node_modules
+57 silly gentlyRm /usr/local/bin/jsx is being gently removed
+58 silly gentlyRm verifying /usr/local is an npm working directory
+59 silly gentlyRm containing path /usr/local is under npm's control, in /usr/local
+60 silly gentlyRm deletion target /usr/local/bin/jsx is under /usr/local
+61 verbose gentlyRm vacuuming from /usr/local/bin/jsx up to /usr/local
+62 silly vacuum-fs removing /usr/local/bin/jsx
+63 silly vacuum-fs quitting because other entries in /usr/local/bin
+64 info postuninstall react-tools@0.9.0
+65 silly gentlyRm /usr/local/lib/node_modules/react-tools is being purged from base /usr/local
+66 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/react-tools
+67 silly vacuum-fs purging /usr/local/lib/node_modules/react-tools
+68 verbose unlock done using /Users/scottblumenthal/.npm/_locks/react-tools-548e65591a6e6311.lock for /usr/local/lib/node_modules/react-tools
+69 verbose stack Error: EACCES, rmdir '/usr/local/lib/node_modules/react-tools'
+69 verbose stack     at Error (native)
+70 verbose cwd /Users/scottblumenthal/workspace/nyt/react
+71 error Darwin 14.3.0
+72 error argv "node" "/usr/local/bin/npm" "update" "-g" "react-tools"
+73 error node v0.12.2
+74 error npm  v2.7.4
+75 error path /usr/local/lib/node_modules/react-tools
+76 error code EACCES
+77 error errno -13
+78 error Error: EACCES, rmdir '/usr/local/lib/node_modules/react-tools'
+78 error     at Error (native)
+78 error  { [Error: EACCES, rmdir '/usr/local/lib/node_modules/react-tools']
+78 error   errno: -13,
+78 error   code: 'EACCES',
+78 error   path: '/usr/local/lib/node_modules/react-tools' }
+79 error Please try running this command again as root/Administrator.
+80 verbose exit [ -13, true ]
+81 verbose unbuild lib/node_modules/react-tools
+82 info preuninstall react-tools@0.9.0
+83 info uninstall react-tools@0.9.0
+84 verbose unbuild rmStuff react-tools@0.9.0 from /usr/local/lib/node_modules
+85 silly gentlyRm /usr/local/bin/jsx is being gently removed
+86 silly gentlyRm verifying /usr/local is an npm working directory
+87 silly gentlyRm containing path /usr/local is under npm's control, in /usr/local
+88 silly gentlyRm deletion target /usr/local/bin/jsx is under /usr/local
+89 verbose gentlyRm vacuuming from /usr/local/bin/jsx up to /usr/local
+90 info postuninstall react-tools@0.9.0
+91 silly gentlyRm /usr/local/lib/node_modules/react-tools is being purged from base /usr/local
+92 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/react-tools
+93 silly vacuum-fs purging /usr/local/lib/node_modules/react-tools
+94 error error rolling back Error: EACCES, rmdir '/usr/local/lib/node_modules/react-tools'
+94 error error rolling back     at Error (native)
+94 error error rolling back  { [Error: EACCES, rmdir '/usr/local/lib/node_modules/react-tools']
+94 error error rolling back   errno: -13,
+94 error error rolling back   code: 'EACCES',
+94 error error rolling back   path: '/usr/local/lib/node_modules/react-tools' }

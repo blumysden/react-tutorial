@@ -1,0 +1,21 @@
+.card-header .fighter {
+  display: inline;
+}
+
+.card-header .fighter-record {
+  font-weight: normal;
+  padding-left: 5px;
+}
+
+.card-header .fighter:first-of-type:after {
+  content: ' v. ';
+}
+
+.scores {
+  border-collapse: collapse;
+}
+
+.scores td {
+  border: 1px solid #666;
+  padding: 3px 5px;
+}
