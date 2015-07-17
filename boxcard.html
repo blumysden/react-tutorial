@@ -138,8 +138,10 @@
     });
 
     var ScorePad = React.createClass({
-      updateScore: function() {
-        this.setState({})
+      updateScore: function(e) {
+        console.log('update?');
+        console.log(e.target.value);
+        // this.setState({})
       },
       render: function() {
         return (
@@ -150,7 +152,7 @@
               return (
                 <fieldset key={fighter.id}>
                   <label>{ fighter.name }</label>
-                  <input type="text" name="{fighter.id}-score" onChange={this.updateScore}/>
+                  <input type="text" onChange={this.updateScore} />
                 </fieldset>
               )
             })}
