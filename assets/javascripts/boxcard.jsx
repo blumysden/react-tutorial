@@ -29,23 +29,41 @@
         }
       }
     ]
-  }
+  };
+
+  var userScores = {
+    1: [8,10,10],
+    2: [10,9,9]
+  };
 
   var Card = React.createClass({
     getInitialState: function() {
       return {
-        scores: this.props.fighters.reduce(function(memo, fighter) {
-          memo[fighter.id] = [10, 10, 9, 8];
-          return memo;
-        }, {})
-      }
+        scores: userScores // fake API call
+      };
+    },
+    getFighterScores: function(fighterId) {
+      return this.state.scores[fighterId];
+    },
+    getFighterScore: function(fighterId, round) {
+      return this.getFighterScores(fighterId)[round - 1];
+    },
+    setFighterScore: function(fighterId, round, score) {
+      var updated = _.reduce(this.state.scores, function(memo, v, k) {
+        memo[k] = v.slice();
+        if (k == fighterId) {
+          memo[k][round - 1] = score;
+        }
+        return memo;
+      }, {});
+      return this.setState({scores: updated});
     },
     render: function(){
       return (
         <div className="card">
           <CardHeader {...this.props}/>
-          <Scores {...this.props} scores={this.state.scores}/>
-          <ScorePad {...this.props} scores={this.state.scores}/>
+          <Scores {...this.props} scores={this.state.scores} getFighterScore={this.getFighterScore.bind(this)}/>
+          <ScorePad {...this.props} scores={this.state.scores} getFighterScore={this.getFighterScore.bind(this)} setFighterScore={this.setFighterScore.bind(this)}/>
         </div>
       )
     }
@@ -71,6 +89,7 @@
       for (var i = 1; i <= this.props.rounds; i++) {
         rounds.push(<td key={i}>{i}</td>);
       };
+      console.log(this.props);
       return (
         <table className="scores">
           <thead>
@@ -81,7 +100,7 @@
           </thead>
           <tbody>
             {this.props.fighters.map(function(fighter) {
-              return (<FighterScores key={fighter.key} fighter={fighter} rounds={this.props.rounds} scores={this.props.scores[fighter.key]}/>);
+              return (<FighterScores key={fighter.key} name={fighter.name} id={fighter.id} rounds={this.props.rounds} getFighterScore={this.props.getFighterScore} setFighterScore={this.props.setFighterScore}/>);
             }, this)}
           </tbody>
         </table>
@@ -89,10 +108,25 @@
     }
   });
 
+  var FighterScores = React.createClass({
+    render: function() {
+      var rounds = [];
+      for (var i = 1; i <= this.props.rounds; i++) {
+        rounds.push(<td>{ this.props.getFighterScore(this.props.id, i) }</td>)
+      };
+      return (
+        <tr className="fighter-round">
+          <td>{ this.props.name }</td>
+          { rounds }
+        </tr>
+      );
+    }
+  });
+
   var ScorePad = React.createClass({
     propTypes: {
-      round: React.PropTypes.number.isRequired,
-      scores: React.PropTypes.array.isRequired
+      round: React.PropTypes.number,
+      scores: React.PropTypes.object.isRequired
     },
     getDefaultProps: function() {
       return {
@@ -111,47 +145,22 @@
           <label>Round</label>
           <input type="text" name="round" value={this.state.round} onChange={this.updateRound}/>
           { this.props.fighters.map(function(fighter) {
-            return (<FighterRoundScore name={fighter.name} key={fighter.key} round={this.state.round} score={this.props.scores[fighter.id][this.state.round - 1]}/>);
+            return (<FighterRoundScore name={fighter.name} key={fighter.key} id={fighter.id} round={this.state.round} getFighterScore={this.props.getFighterScore} setFighterScore={this.props.setFighterScore}/>);
           }, this)}
         </form>
       );
     }
   });
 
-  var FighterScores = React.createClass({
-    render: function() {
-      var rounds = [];
-      for (var i = 1; i <= this.props.rounds; i++) {
-        rounds.push(<FighterRound key={i} score={this.props.scores[i - 1]}/>);
-      };
-      return (
-        <tr className="fighter-round">
-          <td>{ this.props.fighter.name }</td>
-          { rounds }
-        </tr>
-      );
-    }
-  });
-
-  var FighterRound = React.createClass({
-    render: function() {
-      return (<td>{ this.props.score }</td>);
-    }
-  });
-
   var FighterRoundScore = React.createClass({
     updateScore: function(e) {
-      console.log('update?', this.props);
-      console.log(e.target.value);
-
-      // this.setState({ fighter: this.})
+      this.props.setFighterScore(this.props.id, this.props.round, e.target.value);
     },
     render: function() {
-      console.log(this.props.round);
       return (
         <fieldset>
           <label>{ this.props.name }</label>
-          <input type="text" value={this.props.score} onChange={this.updateScore} />
+          <input type="text" value={ this.props.getFighterScore(this.props.id, this.props.round) } onChange={this.updateScore} />
         </fieldset>
       );
     }
