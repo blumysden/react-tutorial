@@ -42,31 +42,50 @@
       var tree = makeTree(this.props.session);
       return (
         <div className="file-browser">
-          <Dir {...tree} />
+          <Dir { ...tree } />
         </div>
       );
     }
   });
 
   var Dir = React.createClass({
+    getInitialState: function() {
+      return { expanded: false };
+    },
+    handleClick: function() {
+      console.log('handleClick', this.props.children);
+      this.setState({ expanded: !this.state.expanded });
+    },
     render: function() {
-      var props = this.props,
+      var self = this,
+          props = this.props,
+          className = 'dir' + ((this.state.expanded) ? ' expanded' : ''),
           dirs = mapSorted(this.props.dirs, function(name) {
+            var key = _.uniqueId('dir_');
             return (
-              <li className="dir">
-                <span className="dir-name">{ name }</span>
-                <Dir {...this[name]} />
-              </li>
+              <SubDir name={ name } contents={ this[name] } key={ key } />
             );
           }),
           files = mapSorted(this.props.files, function(name) {
-            return (<li className="file">{ name }</li>);
+            var key = _.uniqueId('file_');
+            return (<li className="file" key={ key } >{ name }</li>);
           });
       return (
-        <ul className="dir">
+        <ul className={ className }>
           { dirs }
           { files }
         </ul>
+      );
+    }
+  });
+
+  var SubDir = React.createClass({
+    render: function() {
+      return (
+        <li className="sub-dir">
+          <div className='dir-name'>{ this.props.name }</div>
+          <Dir { ...this.props.contents } />
+        </li>
       );
     }
   });
