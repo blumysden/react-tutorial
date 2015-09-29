@@ -49,17 +49,11 @@
   });
 
   var Dir = React.createClass({
-    getInitialState: function() {
-      return { expanded: false };
-    },
-    handleClick: function() {
-      console.log('handleClick', this.props.children);
-      this.setState({ expanded: !this.state.expanded });
-    },
+   
     render: function() {
       var self = this,
           props = this.props,
-          className = 'dir' + ((this.state.expanded) ? ' expanded' : ''),
+          // className = 'dir' + ((this.state.expanded) ? ' expanded' : ''),
           dirs = mapSorted(this.props.dirs, function(name) {
             var key = _.uniqueId('dir_');
             return (
@@ -71,7 +65,7 @@
             return (<li className="file" key={ key } >{ name }</li>);
           });
       return (
-        <ul className={ className }>
+        <ul className={ this.props.expanded ? 'dir-expanded' : 'dir' }>
           { dirs }
           { files }
         </ul>
@@ -80,11 +74,19 @@
   });
 
   var SubDir = React.createClass({
+     getInitialState: function() {
+      return { expanded: false };
+    },
+    handleClick: function() {
+      console.log('handleClick', this.props.children);
+      this.setState({ expanded: !this.state.expanded });
+    },
     render: function() {
+
       return (
         <li className="sub-dir">
-          <div className='dir-name'>{ this.props.name }</div>
-          <Dir { ...this.props.contents } />
+          <div className='dir-name' onClick={ this.handleClick }>{ this.props.name }</div>
+          <Dir { ...this.props.contents } expanded={ this.state.expanded } />
         </li>
       );
     }
